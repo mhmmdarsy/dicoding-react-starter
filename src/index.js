@@ -1,4 +1,3 @@
-import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 function Button({ link }) {
@@ -14,13 +13,13 @@ function CardHeader({ image, category }) {
   );
 }
 
-function CardBody({ date, title, link }) {
+function CardBody({ date, title, content, link }) {
   return (
     <div>
       <p>{date}</p>
       <h2>{title}</h2>
       <p>{content}</p>
-      <button link={link}></button>
+      <Button link={link} />
     </div>
   );
 }
@@ -71,7 +70,35 @@ function News() {
     }
   ];
 
-  return <div>Selesaikan Componentnya</div>;
+  return (
+    <div>
+      <header title="News" subtitle="Latest News" />
+      <Card
+        title={someNews[0].title}
+        date={someNews[0].date}
+        content={someNews[0].content}
+        image={someNews[0].image}
+        category={someNews[0].category}
+        link={someNews[0].link}
+      />
+      <Card
+        title={someNews[1].title}
+        date={someNews[1].date}
+        content={someNews[1].content}
+        image={someNews[1].image}
+        category={someNews[1].category}
+        link={someNews[1].link}
+      />
+      <Card
+        title={someNews[2].title}
+        date={someNews[2].date}
+        content={someNews[2].content}
+        image={someNews[2].image}
+        category={someNews[2].category}
+        link={someNews[2].link}
+      />
+    </div>
+  );
 }
 
 const root = createRoot(document.getElementById('root'));
